@@ -1,7 +1,6 @@
 ﻿
 
 using Application.Contracts.Persistence;
-using Application.Features.Category.Commands.UpdateCategory;
 using Application.Models;
 using AutoMapper;
 using MediatR;
