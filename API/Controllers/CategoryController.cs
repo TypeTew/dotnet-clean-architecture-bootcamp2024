@@ -51,6 +51,10 @@ namespace API.Controllers
             };
 
             var updateCategories = await mediator.Send(command);
+            if (updateCategories is null)
+            {
+                return NotFound();
+            }
 
             return Ok(updateCategories);
         }
@@ -65,6 +69,10 @@ namespace API.Controllers
             };
 
             var delCategories = await mediator.Send(command);
+            if (delCategories is null)
+            {
+                return NotFound();
+            }
 
             return Ok(delCategories);
         }
