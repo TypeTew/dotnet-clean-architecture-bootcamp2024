@@ -6,6 +6,6 @@ namespace Application.Features.Category.Commands.CreateCategory
 {
     public class CreateCategoryCommand : IRequest<CategoryDto>
     {
-        public CreateCategoryRequesrDto Reqeust { get; set; }
+        public CreateCategoryRequestDto Reqeust { get; set; }
     }
 }

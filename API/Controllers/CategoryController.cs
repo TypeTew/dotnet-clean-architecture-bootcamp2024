@@ -1,4 +1,5 @@
 ﻿using Application.Features.Category.Commands.CreateCategory;
+using Application.Features.Category.Commands.DeleteCategory;
 using Application.Features.Category.Commands.UpdateCategory;
 using Application.Features.Category.Queries.GetAllCategories;
 using Application.Models;
@@ -26,7 +27,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateCategoriey([FromBody] CreateCategoryRequesrDto request)
+        public async Task<IActionResult> CreateCategoriey([FromBody] CreateCategoryRequestDto request)
         {
 
             var command = new CreateCategoryCommand()
@@ -40,7 +41,7 @@ namespace API.Controllers
         }
 
         [HttpPut("{id:guid}")]
-        public async Task<IActionResult> UpdateCategoriey([FromRoute] Guid id, [FromBody] UpdateCategoryRequesrDto request)
+        public async Task<IActionResult> UpdateCategoriey([FromRoute] Guid id, [FromBody] UpdateCategoryRequestDto request)
         {
 
             var command = new UpdateCategoryCommand()
@@ -52,6 +53,20 @@ namespace API.Controllers
             var updateCategories = await mediator.Send(command);
 
             return Ok(updateCategories);
+        }
+
+        [HttpDelete("{id:guid}")]
+        public async Task<IActionResult> DeleteCategoriey([FromRoute] Guid id)
+        {
+
+            var command = new DeteteCategoryCommand()
+            {
+                Id = id,
+            };
+
+            var delCategories = await mediator.Send(command);
+
+            return Ok(delCategories);
         }
     }
 }

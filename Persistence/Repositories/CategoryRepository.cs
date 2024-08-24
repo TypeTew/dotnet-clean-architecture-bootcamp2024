@@ -45,5 +45,20 @@ namespace Persistence.Repositories {
             return category;
 
         }
+
+        public async Task<Category> DeleteAsync(Guid guid)
+        {
+            var _getcategory = await dbContext.Categories.Where(c => c.Id == guid).FirstOrDefaultAsync();
+            if (_getcategory is null)
+            {
+                return null;
+            }
+
+            dbContext.Remove(_getcategory);
+            await dbContext.SaveChangesAsync();
+            return _getcategory;
+
+        }
+
     }
 }

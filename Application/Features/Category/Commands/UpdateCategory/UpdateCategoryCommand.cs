@@ -6,7 +6,7 @@ namespace Application.Features.Category.Commands.UpdateCategory
 {
     public class UpdateCategoryCommand : IRequest<CategoryDto>
     {
-        public UpdateCategoryRequesrDto Reqeust { get; set; }
+        public UpdateCategoryRequestDto Reqeust { get; set; }
         public Guid Id { get; set; }
 
     }

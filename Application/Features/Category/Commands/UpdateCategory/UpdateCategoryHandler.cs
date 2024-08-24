@@ -1,13 +1,8 @@
 ﻿using Application.Contracts.Persistence;
-using Application.Features.Category.Commands.CreateCategory;
 using Application.Models;
 using AutoMapper;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Application.Features.Category.Commands.UpdateCategory
 {
