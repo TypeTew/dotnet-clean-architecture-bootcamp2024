@@ -2,6 +2,7 @@
 using Application.Features.Category.Commands.DeleteCategory;
 using Application.Features.Category.Commands.UpdateCategory;
 using Application.Features.Category.Queries.GetAllCategories;
+using Application.Features.Category.Queries.GetCategoriesById;
 using Application.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -20,10 +21,28 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllBlogPost() 
+        public async Task<IActionResult> GetAllBlogPosts() 
         {
             var categories = await mediator.Send(new GetAllCategoriesQuery());
             return Ok(categories);
+        }
+
+        [HttpGet("{id:guid}")]
+        public async Task<IActionResult> GetBlogPosts([FromRoute] Guid id)
+        {
+
+            var command = new GetCategoriesByIdQuery()
+            {
+                Id = id
+            };
+
+            var getCategories = await mediator.Send(command);
+            if (getCategories is null)
+            {
+                return NotFound();
+            }
+
+            return Ok(getCategories);
         }
 
         [HttpPost]
