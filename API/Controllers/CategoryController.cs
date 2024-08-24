@@ -1,4 +1,6 @@
-﻿using Application.Features.Category.Queries.GetAllCategories;
+﻿using Application.Features.Category.Commands.CreateCategory;
+using Application.Features.Category.Queries.GetAllCategories;
+using Application.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +21,20 @@ namespace API.Controllers {
         {
             var categories = await mediator.Send(new GetAllCategoriesQuery());
             return Ok(categories);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateCategoriey([FromBody] CreateCategoryRequesrDto request)
+        {
+
+            var command = new CreateCategoryCommand()
+            {
+                Reqeust = request
+            };
+
+            var createCategories = await mediator.Send(command);
+
+            return Ok(createCategories);
         }
     }
 }

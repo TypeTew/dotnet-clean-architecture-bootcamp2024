@@ -1,8 +1,9 @@
 ﻿
 
-namespace Application.Models {
-    public class CategoryDto {
-        public Guid Id { get; set; }
+namespace Application.Models
+{
+    public class CreateCategoryRequesrDto
+    {
         public string Name { get; set; }
         public string UrlHandle { get; set; }
     }

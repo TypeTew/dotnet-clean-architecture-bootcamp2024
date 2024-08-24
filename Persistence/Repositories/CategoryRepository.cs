@@ -6,7 +6,8 @@ using Persistence.DatabaseContext;
 
 
 namespace Persistence.Repositories {
-    public class CategoryRepository : ICategoryRepository {
+    public class CategoryRepository : ICategoryRepository
+    {
         protected readonly ApplicationDbContext dbContext;
 
         public CategoryRepository(ApplicationDbContext dbContext)
@@ -14,6 +15,12 @@ namespace Persistence.Repositories {
             this.dbContext = dbContext;
         }
 
+        public async Task<Category> CreateAsync(Category category)
+        {
+            dbContext.Categories.Add(category);
+            await dbContext.SaveChangesAsync();
+            return category;
+        }
 
         public async Task<List<Category>> GetAllCategories()
         {
