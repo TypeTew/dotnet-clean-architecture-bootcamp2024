@@ -1,10 +1,12 @@
 ﻿using Application.Features.Category.Commands.CreateCategory;
+using Application.Features.Category.Commands.UpdateCategory;
 using Application.Features.Category.Queries.GetAllCategories;
 using Application.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers {
+namespace API.Controllers
+{
     [Route("api/[controller]")]
     [ApiController]
     public class CategoryController : ControllerBase 
@@ -35,6 +37,21 @@ namespace API.Controllers {
             var createCategories = await mediator.Send(command);
 
             return Ok(createCategories);
+        }
+
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> UpdateCategoriey([FromRoute] Guid id, [FromBody] UpdateCategoryRequesrDto request)
+        {
+
+            var command = new UpdateCategoryCommand()
+            {
+                Reqeust = request,
+                Id = id
+            };
+
+            var updateCategories = await mediator.Send(command);
+
+            return Ok(updateCategories);
         }
     }
 }

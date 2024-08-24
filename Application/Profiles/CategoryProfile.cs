@@ -12,8 +12,10 @@ namespace Application.Profiles {
         public CategoryProfile() {
             CreateMap<Category, CategoryDto>()
                 .ForMember(des => des.Id, opt => opt.MapFrom(src => src.Id));
-            // ให้ CategoryDto สามารถ map กลับไป Category
+            // ให้ CreateCategoryRequesrDto สามารถ map กลับไป Category
             CreateMap<CreateCategoryRequesrDto, Category>();
+            // ให้ UpdateCategoryRequesrDto สามารถ map กลับไป Category
+            CreateMap<UpdateCategoryRequesrDto, Category>();
 
         }
     }
