@@ -9,9 +9,9 @@ namespace Persistence.Repositories {
     public class CategoryRepository : ICategoryRepository {
         protected readonly ApplicationDbContext dbContext;
 
-        public Task<List<Category>> GetAllCategories()
+        public async Task<List<Category>> GetAllCategories()
         {
-            throw new NotImplementedException();
+            return await dbContext.Categories.ToListAsync();
         }
 
         public async Task<Category> GetByIdAsync(Guid id) {
