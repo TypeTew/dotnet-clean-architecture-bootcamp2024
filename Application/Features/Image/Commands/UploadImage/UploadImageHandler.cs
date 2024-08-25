@@ -16,7 +16,8 @@ namespace Application.Features.Image.Commands.UploadImage
         private readonly IMapper mapper;
 
 
-        public UploadImageHandler(IHostingEnvironment hostingEnvironment,
+        public UploadImageHandler(
+            IHostingEnvironment hostingEnvironment,
             IHttpContextAccessor httpContextAccessor , 
             IBlogImageRepository blogImageRepository ,
             IMapper mapper)
@@ -57,5 +58,6 @@ namespace Application.Features.Image.Commands.UploadImage
 
             return mapper.Map<BlogImageDto>(result);
         }
+
     }
 }

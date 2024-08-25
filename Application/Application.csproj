@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <Folder Include="Features\Image\Queries\" />
+    <Folder Include="Features\Register\Queries\" />
   </ItemGroup>
 
 </Project>

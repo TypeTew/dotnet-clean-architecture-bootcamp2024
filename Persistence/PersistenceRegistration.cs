@@ -1,4 +1,5 @@
 ﻿using Application.Contracts.Persistence;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.DatabaseContext;
@@ -10,6 +11,11 @@ namespace Persistence {
 
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<AuthDbContext>(options => options.UseSqlServer(connection));
+
+            //IdentityOptions
+            services.AddIdentityConfiguration();
+
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IBlogPostRepository, BlogPostRepository>();
@@ -17,6 +23,27 @@ namespace Persistence {
             //AddScoped => 1 Request => จะถูกสร้างขึ้นมาแล้วส่งจะหายไป
             //Signleton run service จะอยู่ตลอด
             //Transient ถูกสร้างใหม่ทุกครั้ง
+
+            return services;
+        }
+
+        public static IServiceCollection AddIdentityConfiguration(this IServiceCollection services)
+        {
+            services.AddDataProtection();
+            services.AddIdentityCore<IdentityUser>()
+                .AddRoles<IdentityRole>()
+                .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>("bootcamp")
+                .AddEntityFrameworkStores<AuthDbContext>()
+                .AddDefaultTokenProviders();
+
+            services.Configure<IdentityOptions>(options => {
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
+            });
 
             return services;
         }

@@ -1,4 +1,5 @@
-﻿using Application.Features.BlogPosts.Queries.GetAllBlogPosts;
+﻿using Application.Features.Register.Commands.CreateAccount;
+using Application.Models.Auth;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,9 +16,11 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register()
+        public async Task<IActionResult> Register([FromForm] RegisterRequestDto request)
         {
-            //var blogPosts = await mediator.Send(new GetAllBlogPostsQuery());
+            var register = await mediator.Send(new CreateAccountCommand { 
+                RegisterModel  = request 
+            });
             return Ok();
         }
     }
