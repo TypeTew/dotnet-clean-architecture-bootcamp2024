@@ -1,4 +1,4 @@
-﻿namespace Application.Models
+﻿namespace Application.Models.Category
 {
     public class UpdateCategoryRequestDto
     {

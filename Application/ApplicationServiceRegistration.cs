@@ -1,12 +1,8 @@
 ﻿using Application.Profiles;
 using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Application {
     public static class ApplicationServiceRegistration {
@@ -21,6 +17,7 @@ namespace Application {
 
         public static IMapperConfigurationExpression AddProfileRegistration(this IMapperConfigurationExpression mapper) {
             mapper.AddProfile<CategoryProfile>();
+            mapper.AddProfile<BlogPostsProfile>();
             return mapper;
         }
     }

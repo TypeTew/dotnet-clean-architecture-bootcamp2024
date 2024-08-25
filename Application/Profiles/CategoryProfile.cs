@@ -1,13 +1,10 @@
-﻿using Application.Models;
+﻿using Application.Models.Category;
 using AutoMapper;
 using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Application.Profiles {
+
+namespace Application.Profiles
+{
     public class CategoryProfile : Profile {
         public CategoryProfile() {
             CreateMap<Category, CategoryDto>()
@@ -16,6 +13,7 @@ namespace Application.Profiles {
             CreateMap<CreateCategoryRequestDto, Category>();
             // ให้ UpdateCategoryRequesrDto สามารถ map กลับไป Category
             CreateMap<UpdateCategoryRequestDto, Category>();
+            // ให้ DeleteCategoryRequestDto สามารถ map กลับไป Category
             CreateMap<DeleteCategoryRequestDto, Category>();
 
         }

@@ -1,7 +1,7 @@
 ﻿
 
 using Application.Contracts.Persistence;
-using Application.Models;
+using Application.Models.Category;
 using AutoMapper;
 using MediatR;
 

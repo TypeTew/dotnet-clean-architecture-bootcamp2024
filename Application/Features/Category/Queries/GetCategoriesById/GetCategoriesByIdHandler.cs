@@ -1,6 +1,6 @@
 ﻿using Application.Contracts.Persistence;
 using Application.Features.Category.Queries.GetAllCategories;
-using Application.Models;
+using Application.Models.Category;
 using AutoMapper;
 using MediatR;
 using System;

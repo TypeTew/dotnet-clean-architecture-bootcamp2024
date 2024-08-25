@@ -60,5 +60,9 @@ namespace Persistence.Repositories {
 
         }
 
+        public async Task<int> CountAsync()
+        {
+            return await dbContext.Categories.CountAsync();
+        }
     }
 }

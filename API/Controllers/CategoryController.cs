@@ -3,7 +3,7 @@ using Application.Features.Category.Commands.DeleteCategory;
 using Application.Features.Category.Commands.UpdateCategory;
 using Application.Features.Category.Queries.GetAllCategories;
 using Application.Features.Category.Queries.GetCategoriesById;
-using Application.Models;
+using Application.Models.Category;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
