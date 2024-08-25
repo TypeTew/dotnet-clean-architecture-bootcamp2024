@@ -1,5 +1,6 @@
 ﻿using Application.Features.Category.Queries.GetAllCategories;
 using Application.Features.Image.Commands.UploadImage;
+using Application.Models.BlogImage;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,18 +18,14 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UploadImage(
-              [FromForm] IFormFile file
-            , [FromForm] string fileName
-            , [FromForm] string title)
+        //public async Task<IActionResult> UploadImage(
+        //      [FromForm] IFormFile file
+        //    , [FromForm] string fileName
+        //    , [FromForm] string title )
+        public async Task<IActionResult> UploadImage([FromForm] CreateBlogImageDto request)
         {
 
-            await mediator.Send(new UploadImageCommand
-            {
-                FileName = fileName,
-                File = file,
-                Tittle = title
-            });
+            await mediator.Send(new UploadImageCommand { Request = request });
             return Ok();
         }
     }

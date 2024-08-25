@@ -29,25 +29,25 @@ namespace Application.Features.Image.Commands.UploadImage
 
         public async Task<BlogImageDto> Handle(UploadImageCommand request, CancellationToken cancellationToken)
         {
-            var file = request.File;
+            var file = request.Request.File;
             var fileExtension = Path.GetExtension(file.FileName).ToLower();
 
             Directory.CreateDirectory(Path.Combine(hostingEnvironment.ContentRootPath, "Images"));
 
-            var localPath = Path.Combine(hostingEnvironment.ContentRootPath, "Images", $"{request.FileName}{fileExtension}");
+            var localPath = Path.Combine(hostingEnvironment.ContentRootPath, "Images", $"{request.Request.FileName}{fileExtension}");
             using var stream = new FileStream(localPath, FileMode.Create);
             await file.CopyToAsync(stream);
 
 
             //Update to database
             var httpRequest = httpContextAccessor.HttpContext.Request;
-            var urlPath = $"{httpRequest.Scheme}://{httpRequest.Host}{httpRequest.PathBase}/Image/{request.FileName}";
+            var urlPath = $"{httpRequest.Scheme}://{httpRequest.Host}{httpRequest.PathBase}/Image/{request.Request.FileName}{fileExtension}";
 
 
             var blogImage = new BlogImage
             {
-                FileName = request.FileName,
-                Title  = request.Tittle,
+                FileName = request.Request.FileName,
+                Title  = request.Request.Tittle,
                 FileExtension = fileExtension,
                 Url = urlPath,
                 DateCreated = DateTime.Now,
