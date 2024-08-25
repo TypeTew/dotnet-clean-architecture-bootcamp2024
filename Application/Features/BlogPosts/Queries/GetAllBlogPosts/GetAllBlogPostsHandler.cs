@@ -1,6 +1,5 @@
 ﻿using Application.Contracts.Persistence;
 using Application.Models.BlogPosts;
-using Application.Models.Category;
 using AutoMapper;
 using MediatR;
 
@@ -29,7 +28,6 @@ namespace Application.Features.BlogPosts.Queries.GetAllBlogPosts
 
             // automap
             var result = mapper.Map<List<BlogPostDto>>(_blogPosts);
-
 
             return result;
         }

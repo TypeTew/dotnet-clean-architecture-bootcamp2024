@@ -1,13 +1,8 @@
 ﻿using Application.Contracts.Persistence;
-using Application.Features.Category.Queries.GetAllCategories;
 using Application.Models.Category;
 using AutoMapper;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Application.Features.Category.Queries.GetCategoriesById
 {

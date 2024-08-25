@@ -1,6 +1,7 @@
 ﻿using Application.Features.BlogPosts.Commands.CreateBlogPost;
 using Application.Features.BlogPosts.Queries.GetAllBlogPosts;
 using Application.Features.Category.Queries.GetAllCategories;
+using Application.Features.Category.Queries.GetCategoriesById;
 using Application.Models.BlogPosts;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,14 @@ namespace API.Controllers
             var blogPosts = await mediator.Send(new GetAllBlogPostsQuery());
             return Ok(blogPosts);
         }
+
+        [HttpGet("{id:guid}")]
+        public async Task<IActionResult> GetBlogPosts([FromRoute] Guid id)
+        {
+
+            return Ok();
+        }
+
 
 
         [HttpPost]
