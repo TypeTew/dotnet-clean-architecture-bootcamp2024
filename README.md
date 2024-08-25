@@ -29,7 +29,11 @@ dotnet watch run -p API #Run the project with hot reload
 dotnet add package Newtonsoft.Json
 ```
 
+### JWT
+```
 dotnet add ./Application  package Microsoft.AspNetCore.App
+```
+
 
 ### database connection string
 ```bash
