@@ -7,13 +7,11 @@ namespace Application.Features.Register.Commands.CreateAccount
 {
     public class CreateAccountHandler : IRequestHandler<CreateAccountCommand, bool>
     {
-        private readonly IMapper mapper;
         private readonly UserManager<IdentityUser> userManager;
 
-        public CreateAccountHandler(UserManager<IdentityUser> userManager, IMapper mapper)
+        public CreateAccountHandler(UserManager<IdentityUser> userManager)
         {
             this.userManager = userManager;
-            this.mapper = mapper;
         }
         public async Task<bool> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
         {
