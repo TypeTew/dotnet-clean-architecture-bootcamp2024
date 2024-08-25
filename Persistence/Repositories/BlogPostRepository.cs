@@ -15,7 +15,7 @@ namespace Persistence.Repositories
 
         public async Task<BlogPost> CreateAsync(BlogPost blogPost)
         {
-            dbContext.BlogPosts.Add(blogPost);
+            await dbContext.BlogPosts.AddAsync(blogPost);
             await dbContext.SaveChangesAsync();
             return blogPost;
         }
