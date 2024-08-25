@@ -32,6 +32,17 @@ dotnet add package Newtonsoft.Json
 ### JWT
 ```
 dotnet add ./Application  package Microsoft.AspNetCore.App
+dotnet add .\API package Microsoft.ASpNetCore.Authentication.JwtBearer
+dotnet add .\API package System.IdentityModel.Tokens.Jwt
+dotnet add .\API package Microsoft.IdentityModel.tokens
+ 
+dotnet add .\Application package Microsoft.ASpNetCore.Authentication.JwtBearer
+dotnet add .\Application package Microsoft.ASpNetCore.Identity.EntityFrameworkCore
+ 
+dotnet add .\Persistence package Microsoft.ASpNetCore.Authentication.JwtBearer
+dotnet add .\Persistence package Microsoft.ASpNetCore.Identity.EntityFrameworkCore
+dotnet add .\Persistence package Microsoft.IdentityModel.tokens
+dotnet add .\Persistence package System.IdentityModel.Tokens.Jwt
 ```
 
 
