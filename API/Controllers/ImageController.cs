@@ -1,5 +1,4 @@
-﻿using Application.Features.Category.Queries.GetAllCategories;
-using Application.Features.Image.Commands.UploadImage;
+﻿using Application.Features.Image.Commands.UploadImage;
 using Application.Models.BlogImage;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
