@@ -10,7 +10,8 @@ namespace Application.Profiles
         {
             CreateMap<BlogPost, BlogPostDto>();
             // ให้ CreateBlogPostRequestDto สามารถ map กลับไป BlogPost
-            CreateMap<CreateBlogPostRequestDto, BlogPost>();
+            CreateMap<CreateBlogPostRequestDto, BlogPost>()
+               .ForMember(dest => dest.Categories, opt => opt.MapFrom(src => new List<Category>()));
 
 
         }
