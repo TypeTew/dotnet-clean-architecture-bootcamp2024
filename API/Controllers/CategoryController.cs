@@ -5,10 +5,12 @@ using Application.Features.Category.Queries.GetAllCategories;
 using Application.Features.Category.Queries.GetCategoriesById;
 using Application.Models.Category;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoryController : ControllerBase 
