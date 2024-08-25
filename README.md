@@ -29,6 +29,8 @@ dotnet watch run -p API #Run the project with hot reload
 dotnet add package Newtonsoft.Json
 ```
 
+dotnet add ./Application  package Microsoft.AspNetCore.App
+
 ### database connection string
 ```bash
 "bootcampDatabase": "Server=localhost\MSSQLSERVER01;Database=bootcamp;User ID=test02;password=123456;TrustServerCertificate=True;Trusted_Connection=True"
