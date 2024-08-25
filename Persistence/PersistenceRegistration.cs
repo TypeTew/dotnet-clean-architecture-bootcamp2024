@@ -13,6 +13,7 @@ namespace Persistence {
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IBlogPostRepository, BlogPostRepository>();
+            services.AddScoped<IBlogImageRepository, BlogImageRepository>();
             //AddScoped => 1 Request => จะถูกสร้างขึ้นมาแล้วส่งจะหายไป
             //Signleton run service จะอยู่ตลอด
             //Transient ถูกสร้างใหม่ทุกครั้ง
