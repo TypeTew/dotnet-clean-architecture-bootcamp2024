@@ -1,5 +1,6 @@
 ﻿using Application.Contracts.Persistence;
 using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using Persistence.DatabaseContext;
 
 namespace Persistence.Repositories
@@ -12,6 +13,11 @@ namespace Persistence.Repositories
         {
             this.dbContext = dbContext;
         }
+        public async Task<List<BlogPost>> GetAllBlogPosts()
+        {
+            return await dbContext.BlogPosts.AsNoTracking().Include(i => i.Categories).ToListAsync();
+
+        }
 
         public async Task<BlogPost> CreateAsync(BlogPost blogPost)
         {
@@ -19,5 +25,7 @@ namespace Persistence.Repositories
             await dbContext.SaveChangesAsync();
             return blogPost;
         }
+
+
     }
 }

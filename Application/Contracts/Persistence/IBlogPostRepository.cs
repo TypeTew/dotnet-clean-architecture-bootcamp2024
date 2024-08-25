@@ -6,5 +6,7 @@ namespace Application.Contracts.Persistence
     public interface IBlogPostRepository
     {
         Task<BlogPost> CreateAsync(BlogPost blogPost);
+        Task<List<BlogPost>> GetAllBlogPosts();
+
     }
 }
