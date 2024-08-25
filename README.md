@@ -2,6 +2,11 @@
 ```bash
 dotnet ef migrations add "initial01" --project .\Persistence --startup-project .\API --output-dir .\Migrations
 dotnet ef database update --project .\Persistence --startup-project ./API
+
+-- add auth
+dotnet ef migrations add "add identity" --project .\Persistence --startup-project .\API --output-dir .\Migrations --context AuthDbContext
+dotnet ef database update --project .\Persistence --startup-project ./API --context AuthDbContext
+
 ```
 
 ### The dotnet-ef tool must be install to use the database command
