@@ -1,7 +1,5 @@
 ﻿using Application.Features.BlogPosts.Commands.CreateBlogPost;
 using Application.Features.BlogPosts.Queries.GetAllBlogPosts;
-using Application.Features.Category.Queries.GetAllCategories;
-using Application.Features.Category.Queries.GetCategoriesById;
 using Application.Models.BlogPosts;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
