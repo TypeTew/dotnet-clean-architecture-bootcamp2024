@@ -50,6 +50,12 @@ dotnet add .\Persistence package Microsoft.IdentityModel.tokens
 dotnet add .\Persistence package System.IdentityModel.Tokens.Jwt
 ```
 
+### Add reference
+```
+dotnet add "Application.test" reference "Application/Application.csproj"
+
+ ```
+
 
 ### database connection string
 ```bash
