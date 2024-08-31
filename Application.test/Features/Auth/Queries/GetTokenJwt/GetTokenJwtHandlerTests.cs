@@ -65,7 +65,15 @@ namespace Application.test.Features.Auth.Queries.GetTokenJwt
             CancellationToken cancellationToken = CancellationToken.None;
             var userStoreMock = new Mock<IUserStore<IdentityUser>>();
             var mockUserManager = new Mock<UserManager<IdentityUser>>(
-                userStoreMock.Object, default, default, default, default, default, default, default, default);
+                                  userStoreMock.Object, 
+                                  default!, 
+                                  default!, 
+                                  default!, 
+                                  default!,
+                                  default!,
+                                  default!,
+                                  default!,
+                                  default!);
             mockUserManager.Setup(it => it.FindByEmailAsync(request.Email))
                 .Returns(Task.FromResult<IdentityUser>(null));
             var mockConfiguration = new Mock<IConfiguration>();
